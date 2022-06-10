@@ -29,8 +29,6 @@ public class KillListener implements Listener {
         }
         
         Player p = event.getEntity();
-        String diedGroup = getPlayerGroup(p, groupList);
-        
         if (event.getEntity().getKiller() instanceof Player) {
             Player killerPlayer = event.getEntity().getKiller();
             String killerGroup = getPlayerGroup(p.getKiller(), groupList);
@@ -47,7 +45,6 @@ public class KillListener implements Listener {
             if (!msg.isEmpty()) killerPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
             if (!actionBarMsg.isEmpty()) sendActionbarMessage(killerPlayer, ChatColor.translateAlternateColorCodes('&', actionBarMsg));
 
-
             String msgTarget = formatPlaceholders(config.getString("Kill.groups." + killerGroup + ".target.message"), killerPlayer, p);
             String actionBarMsgTarget = formatPlaceholders(config.getString("Kill.groups." + killerGroup + ".target.actionbar-message"), killerPlayer, p);
             if (!msgTarget.isEmpty()) p.sendMessage(ChatColor.translateAlternateColorCodes('&', msgTarget));
@@ -55,6 +52,7 @@ public class KillListener implements Listener {
             return;
         }
 
+        String diedGroup = getPlayerGroup(p, groupList);
         List<String> commandArray = config.getStringList("Die.groups." + diedGroup + ".commands");
         String msg = config.getString("Die.groups." + diedGroup + ".message");
         String actionBarMsg = config.getString("Die.groups." + diedGroup + ".actionbar-message");
