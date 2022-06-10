@@ -1,0 +1,8 @@
+# 𝓒𝓸𝓭𝓮𝓭 𝓫𝔂 𝓔𝔁𝓸𝓼𝓶𝓲𝓾𝓶 (vk.com/prodbyhakin)
+# Спасибо, что используете мой плагин!
+
+name: exoKills
+version: '${project.version}'
+main: lv.exosmium.exoKills.exoMain
+author: exosmium
+description: Award your players for killing each other!
